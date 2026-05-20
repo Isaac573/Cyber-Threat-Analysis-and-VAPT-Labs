@@ -3,16 +3,16 @@ from collections import Counter
 
 # Simulated Web Server Log Data (Apache/Nginx style)
 log_data = [
-    '192.168.1.50 - - [15/May/2026:13:45:02] "POST /login HTTP/1.1" 401 234',
-    '192.168.1.50 - - [15/May/2026:13:45:05] "POST /login HTTP/1.1" 401 234',
-    '192.168.1.50 - - [15/May/2026:13:45:08] "POST /login HTTP/1.1" 401 234',
-    '185.220.101.5 - - [15/May/2026:13:46:12] "GET /index.php?id=1\'%20OR%201=1 HTTP/1.1" 200 4523',
-    '192.168.1.99 - - [15/May/2026:13:47:00] "GET /assets/logo.png HTTP/1.1" 200 12344',
-    '185.220.101.5 - - [15/May/2026:13:47:15] "GET /etc/passwd HTTP/1.1" 403 892'
+    '[TARGET-IP] - - [15/May/2026:13:45:02] "POST /login HTTP/1.1" 401 234',
+    '[TARGET-IP] - - [15/May/2026:13:45:05] "POST /login HTTP/1.1" 401 234',
+    '[TARGET-IP] - - [15/May/2026:13:45:08] "POST /login HTTP/1.1" 401 234',
+    '[TARGET-IP] - - [15/May/2026:13:46:12] "GET /index.php?id=1\'%20OR%201=1 HTTP/1.1" 200 4523',
+    '[TARGET-IP] - - [15/May/2026:13:47:00] "GET /assets/logo.png HTTP/1.1" 200 12344',
+    '[TARGET-IP] - - [15/May/2026:13:47:15] "GET /etc/passwd HTTP/1.1" 403 892'
 ]
 
 def parse_logs():
-    print("[*] Initiating I4C Threat Intelligence Log Parser Simulation...")
+    print("[*] Initiating Threat Intelligence Log Parser Simulation...")
     
     # Regex patterns for tracking malicious activity
     ip_pattern = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
@@ -26,7 +26,7 @@ def parse_logs():
     for entry in log_data:
         ip = re.search(ip_pattern, entry).group()
         
-        # 1. Detect Potential Brute Force (Multiple 401 Unauthorized status codes)
+        # 1. Detect Potential Brute Force (Multiple 401 Unauthorised status codes)
         if re.search(failed_login_pattern, entry):
             failed_logins.append(ip)
             
