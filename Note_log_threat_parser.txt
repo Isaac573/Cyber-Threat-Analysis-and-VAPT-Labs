@@ -1,0 +1,25 @@
+## 📜 Log Parser Threat Notes ##
+
+There are two versions of the Threat Intelligence Log Parser:
+
+### log_threat_parser_static.py ###
+
+    - IP is fixed (TARGET-IP).
+
+    - Timestamps are generated dynamically (datetime.now()), so they update each run.
+
+    - Best for quick demos where you don’t want to type the IP every time.
+
+### log_threat_parser_interactive.py ###
+
+    - Asks for the IP at runtime (Enter TARGET-IP:).
+
+    - Timestamps are also dynamic, updating each run.
+
+    - Best for realistic simulations, training labs, or exam practice.
+
+## Summary: ##
+
+    * Use /static/ if you want predictable IP but fresh timestamps.
+
+    * Use /interactive/ if you want to test different IPs with fresh timestamps.
